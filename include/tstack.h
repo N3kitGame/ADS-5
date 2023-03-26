@@ -10,7 +10,7 @@ class Tstack {
  private:
     T arr[100];
     int top;
-    
+
  public:
     Tstack() :top(-1) {}
     void push(T value) {
