@@ -1,18 +1,17 @@
 // Copyright 2021 NNTU-CS
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
-
-#pragma once
 #include <string>
 
-template <typename T, int size>
-class Tstack {
+template<typename T, int size>
+class TStack {
+  // добавьте код стека
  private:
     T arr[100];
     int top;
 
  public:
-    Tstack() :top(-1) {}
+    TStack() :top(-1) {}
     void push(T value) {
       if (isFull()) {
         throw std::string("Stack is full");
