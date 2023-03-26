@@ -53,29 +53,29 @@ std::string infx2pstfx(std::string inf) {
         if (prior == -1) {
             work += op;
         } else {
-            if (stack1.get() < prior || prior == 0 || stack1.isEmpty()) {
-                stack1.push(op);
+            if (tstack.get() < prior || prior == 0 || tstack.isEmpty()) {
+                tstack.push(op);
             } else if (op == ')') {
-                char sm = stack1.get();
+                char sm = tstack.get();
                 while (getPrior(sm) >= prior) {
                     work += sm;
-                    stack1.pop();
-                    sm = stack1.get();
+                    tstack.pop();
+                    sm = tstack.get();
                 }
-                stack1.pop();
+                tstack.pop();
             } else {
-                char sm = stack1.get();
+                char sm = tstack.get();
                 while (getPrior(sm) >= prior) {
                     work += sm;
-                    stack1.pop();
-                    sm = stack1.get();
+                    tstack.pop();
+                    sm = tstack.get();
                 }
-                stack1.push(op);
+                tstack.push(op);
             }
         }
     }
     while (!stack1.isEmpty()) {
-        work += stack1.get();
+        work += tstack.get();
         stack1.pop();
     }
     work = space123(work);
@@ -95,7 +95,7 @@ int count(const int& a, const int& b, const int& oper) {
 }
 
 int eval(std::string pref) {
-    TStack<int, 100> stack1;
+    Tstack<int, 100> tstack;
     std::string num = "";
     for (size_t i = 0; i < pref.size(); i++) {
         if (getPrior(pref[i]) == -1) {
@@ -106,16 +106,16 @@ int eval(std::string pref) {
                 continue;
             } else {
                 num += pref[i];
-                stack1.push(atoi(num.c_str()));
+                tstack.push(atoi(num.c_str()));
                 num = "";
             }
         } else {
-            int b = stack1.get();
-            stack1.pop();
-            int a = stack1.get();
-            stack1.pop();
-            stack1.push(count(a, b, pref[i]));
+            int b = tstack.get();
+            tstack.pop();
+            int a = tstack.get();
+            tstack.pop();
+            tstack.push(count(a, b, pref[i]));
         }
     }
-    return stack1.get();
+    return tstack.get();
 }
