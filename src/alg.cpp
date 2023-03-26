@@ -117,5 +117,5 @@ int eval(std::string pref) {
             tstack.push(count(a, b, pref[i]));
         }
     }
-    return tstack.get();
+    return Tstack.get();
 }
