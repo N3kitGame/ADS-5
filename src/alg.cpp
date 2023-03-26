@@ -53,7 +53,7 @@ std::string infx2pstfx(std::string inf) {
         if (prior == -1) {
             work += op;
         } else {
-            if (tstack.get() < prior || prior == 0 || tstack.isEmpty()) {
+            if (Tstack.get() < prior || prior == 0 || Tstack.isEmpty()) {
                 tstack.push(op);
             } else if (op == ')') {
                 char sm = tstack.get();
@@ -75,7 +75,7 @@ std::string infx2pstfx(std::string inf) {
         }
     }
     while (!stack1.isEmpty()) {
-        work += tstack.get();
+        work += Tstack.get();
         stack1.pop();
     }
     work = space123(work);
