@@ -1,3 +1,4 @@
+// Copyright 2021 NNTU-CS
 #include <map>
 #include "tstack.h"
 
@@ -83,7 +84,6 @@ std::string infx2pstfx(std::string inf) {
 }
 
 int eval(std::string pref) {
-  // добавьте код
 int count(const int& a, const int& b, const int& oper) {
   switch (oper) {
     default:
