@@ -7,10 +7,11 @@
 
 template <typename T, int size>
 class Tstack {
-  private:
-    T arr[size];
+ private:
+    T arr[100];
     int top;
-  public:
+    
+ public:
     Tstack() :top(-1) {}
     void push(T value) {
       if (isFull()) {
@@ -34,7 +35,7 @@ class Tstack {
     }
     const T& get()const {
       return arr[top];
-    }	
+    }
 };
 
 #endif  // INCLUDE_TSTACK_H_
