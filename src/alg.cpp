@@ -82,8 +82,6 @@ std::string infx2pstfx(std::string inf) {
   work = space1(work);
   return work;
 }
-
-int eval(std::string pref) {
 int count(const int& a, const int& b, const int& oper) {
   switch (oper) {
     default:
