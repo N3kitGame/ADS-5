@@ -52,12 +52,10 @@ std::string infx2pstfx(std::string inf) {
         int prior = getPrior(op);
         if (prior == -1) {
             work += op;
-        }
-        else {
-            if (stack1.get() < prior or prior == 0 or stack1.isEmpty()) {
+        } else {
+            if (stack1.get() < prior || prior == 0 || stack1.isEmpty()) {
                 stack1.push(op);
-            }
-            else if (op == ')') {
+            } else if (op == ')') {
                 char sm = stack1.get();
                 while (getPrior(sm) >= prior) {
                     work += sm;
@@ -65,8 +63,7 @@ std::string infx2pstfx(std::string inf) {
                     sm = stack1.get();
                 }
                 stack1.pop();
-            }
-            else {
+            } else {
                 char sm = stack1.get();
                 while (getPrior(sm) >= prior) {
                     work += sm;
@@ -104,18 +101,15 @@ int eval(std::string pref) {
         if (getPrior(pref[i]) == -1) {
             if (pref[i] == ' ') {
                 continue;
-            }
-            else if (isdigit(pref[i + 1])) {
+            } else if (isdigit(pref[i + 1])) {
                 num += pref[i];
                 continue;
-            }
-            else {
+            } else {
                 num += pref[i];
                 stack1.push(atoi(num.c_str()));
                 num = "";
             }
-        }
-        else {
+        } else {
             int b = stack1.get();
             stack1.pop();
             int a = stack1.get();
