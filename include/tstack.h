@@ -23,7 +23,7 @@ class Tstack {
       if (isEmpty()) {
         throw std::string("Stack is empty");
       } else {
-			  return arr[top--];
+        return arr[top--];
       }
     }
     bool isEmpty()const {
@@ -32,11 +32,9 @@ class Tstack {
     bool isFull()const {
       return top == size - 1;
     }
-
-		const T& get()const {
-			return arr[top];
-		}
-		
+    const T& get()const {
+      return arr[top];
+    }	
 };
 
 #endif  // INCLUDE_TSTACK_H_
